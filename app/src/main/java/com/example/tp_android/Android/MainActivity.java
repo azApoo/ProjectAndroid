@@ -8,43 +8,37 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tp_android.R;
+import com.example.tp_android.Utilitaire.Verification;
 
 public class MainActivity extends AppCompatActivity {
-
+    EditText inUser,inPw;
+    Intent myIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
 
-    public void nexPage(View maVue){
+    public void login(View myView){
 
         //instanciation de la zone de saisie
-        EditText inUser = (EditText) findViewById(R.id.editText);
-        EditText inPw = (EditText) findViewById(R.id.editText2);
+        inUser = (EditText) findViewById(R.id.editText);
+        inPw = (EditText) findViewById(R.id.editText2);
 
         String sUser = inUser.getText().toString();
         String sPw = inPw.getText().toString();
-        String pw_accepted = "Abcd1234;";
+        if(Verification.validerUsername(sUser)){
+            myIntent = new Intent(this,Main2Activity_succes.class);
+            startActivity(myIntent);
+        }
+        else {
+            myIntent = new Intent(this,Main2Activity_Error.class);
 
-        //Intent selon la validation
-            Intent myIntent_Extra;
-        Intent myIntent_Error = new Intent(this, Main2Activity_Error.class);
-        Intent myIntent_Succes = new Intent(this, Main2Activity_succes.class);
-        //la validation du pw
-            // 1) la taille de 8 caractères
-                    if(sPw.length()< 8){
-                       myIntent_Extra = myIntent_Error;
+            myIntent.putExtra("USERNAME", sUser);
+            startActivity(myIntent);
 
-                    }else if(!sPw.equals(pw_accepted)){
-                        myIntent_Extra = myIntent_Error;
-                    }
-                    else{
-                        myIntent_Extra = myIntent_Succes;
-                    }
+        }
 
-
-        startActivity(myIntent_Extra);
 
     }
 

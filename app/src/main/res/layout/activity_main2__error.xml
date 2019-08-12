@@ -11,8 +11,8 @@
         android:layout_width="151dp"
         android:layout_height="36dp"
         android:text="Error Login"
-        tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="59dp" />
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="137dp" />
 
     <Button
         android:id="@+id/button2"
