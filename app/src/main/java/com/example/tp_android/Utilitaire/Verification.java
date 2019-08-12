@@ -5,18 +5,15 @@ import java.util.regex.Pattern;
 
 public class Verification {
     private static final String USERNAME_PATTERN = "^[A-Za-z0-9]{1,}$";
-    private static Pattern pattern;
-    private static Matcher matcher;
+    public static final String PW_PATTERN = "^(?![A-Za-z0-9]+$)(?![a-z0-9\\W_]+$)(?![A-Za-z\\W_]+$)(?![A-Z0-9\\W_]+$)[a-zA-Z0-9\\W_]{8,}$";
+
     public static boolean validerUsername(String username){
-        pattern = Pattern.compile(USERNAME_PATTERN);
-        matcher = pattern.matcher(username);
-        System.out.println("matcher.matches():" +matcher.matches());
-        return matcher.matches();
+        return username.matches(USERNAME_PATTERN);
     }
 
     public static boolean validerPassword(String password){
 
-        return true;
+        return password.matches(PW_PATTERN);
     }
 
 }

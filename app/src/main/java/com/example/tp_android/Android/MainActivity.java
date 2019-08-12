@@ -30,20 +30,21 @@ public class MainActivity extends AppCompatActivity {
         //instanciation de la zone de saisie
         inUser = (EditText) findViewById(R.id.editText);
         inPw = (EditText) findViewById(R.id.editText2);
-        List<Produit> l = null;
-        l= WebService.getList();
+       // List<Produit> l = null;
+       // l= WebService.getList();
         String sUser = inUser.getText().toString();
         String sPw = inPw.getText().toString();
-        if(Verification.validerUsername(sUser)){
+        System.out.println("sUser ---" +sUser);
+        System.out.println("sPw ---" +sPw);
+        if(Verification.validerUsername(sUser)&&Verification.validerPassword(sPw)){
             myIntent = new Intent(this,Main2Activity_succes.class);
             startActivity(myIntent);
         }
         else {
             myIntent = new Intent(this,Main2Activity_Error.class);
-
             myIntent.putExtra("USERNAME", sUser);
+            myIntent.putExtra("PASSWORD", sPw);
             startActivity(myIntent);
-
         }
 
 
