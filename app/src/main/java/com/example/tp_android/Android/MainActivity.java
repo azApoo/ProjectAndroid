@@ -1,11 +1,13 @@
-package com.example.tp_android;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.tp_android.Android;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.tp_android.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
         //Intent selon la validation
             Intent myIntent_Extra;
-            Intent myIntent_Error = new Intent(this,Main2Activity_Error .class);
-            Intent myIntent_Succes = new Intent(this,Main2Activity_succes.class);
+        Intent myIntent_Error = new Intent(this, Main2Activity_Error.class);
+        Intent myIntent_Succes = new Intent(this, Main2Activity_succes.class);
         //la validation du pw
             // 1) la taille de 8 caractères
                     if(sPw.length()< 8){

@@ -1,8 +1,10 @@
-package com.example.tp_android;
+package com.example.tp_android.Android;
+
+import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+import com.example.tp_android.R;
 
 public class Main2Activity_succes extends AppCompatActivity {
 

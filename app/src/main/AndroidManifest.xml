@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Main2Activity_succes"></activity>
-        <activity android:name=".Main2Activity_Error" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Android.Main2Activity_succes"></activity>
+        <activity android:name=".Android.Main2Activity_Error" />
+        <activity android:name=".Android.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
