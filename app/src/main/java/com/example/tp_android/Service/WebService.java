@@ -15,7 +15,7 @@ import java.util.List;
 
 public class WebService {
 
-    public List<Produit> getList() {
+    public static List<Produit> getList() {
 
         List<Produit> ListProduits = null;
 
@@ -23,7 +23,7 @@ public class WebService {
         URL url = null;
 
         try {
-            url = new URL("http://ziedzaier.com/wp-content/uploads/2018/09/student2.txt");
+            url = new URL("http://localhost:52092/wsREST_simple/webresources/produit");
             HttpURLConnection client = null;
 
             client = (HttpURLConnection) url.openConnection();
@@ -78,7 +78,7 @@ public class WebService {
         URL url = null;
 
         try {
-            url = new URL("http://ziedzaier.com/wp-content/uploads/2018/09/student2.txt");
+            url = new URL("http://localhost:52092/wsREST_simple/webresources/produit/id/"+id);
             HttpURLConnection client = null;
 
             client = (HttpURLConnection) url.openConnection();
