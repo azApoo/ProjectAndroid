@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     Intent myIntent;
     ArrayList<Produit> list=new ArrayList();
     Produit prd=new Produit();
+    String username="abcd2019", password="Abcd1234;";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +65,8 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("sUser ---" +sUser);
         System.out.println("sPw ---" +sPw);
 
-        if(Verification.validerUsername(sUser)&&Verification.validerPassword(sPw)){
+        if(Verification.validerUsername(sUser)&&Verification.validerPassword(sPw)&&
+           Verification.verifierUserPwd(sUser,sPw)){
             myIntent = new Intent(this,Main2Activity_succes.class);
             startActivity(myIntent);
         }
