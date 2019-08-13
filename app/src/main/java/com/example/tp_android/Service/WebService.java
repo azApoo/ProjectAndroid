@@ -32,7 +32,7 @@ public class WebService {
             URL url = null;
 
             try {
-                url = new URL("http://10.143.16.112:8080/wsREST_simple/webresources/produit");
+                url = new URL("http://192.168.2.20:8080/wsREST_simple/webresources/produit");
                 HttpURLConnection client = null;
 
                 client = (HttpURLConnection) url.openConnection();
@@ -65,6 +65,8 @@ public class WebService {
                     p.setNom(SingleProduit.getString("nom"));
                     p.setPrix(SingleProduit.getDouble("prix"));
                     p.setQuantite(SingleProduit.getInt("quantite"));
+
+
                     ListProduits.add(i, p);
                 }
 
@@ -89,7 +91,7 @@ public class WebService {
 
             try {
 
-                url = new URL("http://10.143.16.112:8080/wsREST_simple/webresources/produit/id/" + id);
+                url = new URL("http://192.168.2.20:8080/wsREST_simple/webresources/produit/id/" + id);
                 HttpURLConnection client = null;
 
                 client = (HttpURLConnection) url.openConnection();
@@ -118,6 +120,7 @@ public class WebService {
                 p.setNom(JSONProduit.getString("nom"));
                 p.setPrix(JSONProduit.getDouble("prix"));
                 p.setQuantite(JSONProduit.getInt("quantite"));
+                p.setDescription(JSONProduit.getString("desciption"));
 
             } catch (IOException | JSONException e) {
                 e.printStackTrace();
