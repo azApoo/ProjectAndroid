@@ -23,7 +23,8 @@ import java.util.concurrent.ExecutionException;
 
 public class Main2Activity_succes extends AppCompatActivity {
     ArrayList<Produit> ListProd = new ArrayList();
-
+    String theSelectedValue;
+    String[] idList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,43 +83,38 @@ public class Main2Activity_succes extends AppCompatActivity {
 
             med.addView(tr1);
         }
-            String[] idList = new String[ListProd.size()];
-            for (int i = 0; i < ListProd.size() - 1; i++) {
+             idList = new String[ListProd.size()];
+            for (int i = 0; i < ListProd.size(); i++) {
                 idList[i] = ListProd.get(i).getId();
+                System.out.println(idList[i]);
             }
-                //System.out.println(idList[i]);
-                Spinner dropdown = (Spinner) findViewById(R.id.theList);
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, idList);
-                dropdown.setAdapter(adapter);
+        //System.out.println(idList);
 
-                //on va cree une instance pour le spinner et Textview
-                //Spinner dropdown = (Spinner) findViewById(R.id.theList);
+        Spinner dropdown = (Spinner) findViewById(R.id.theList);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, idList);
+       dropdown.setAdapter(adapter);
+       theSelectedValue = dropdown.getSelectedItem().toString();
+        System.out.print("************************"+theSelectedValue);
+    }
 
-
-
-                //on va recuperer la valeur selectionnee dans le dropdown comme String
-                String theSelectedValue = dropdown.getSelectedItem().toString();
-
-                //on va recuperer la valeur selectionne dans le dropdown comme position
-                int theSelectedPosition = dropdown.getSelectedItemPosition();
-
-                Intent myIntent = new Intent(this, Main3Activity.class);
-                myIntent.putExtra("ID", theSelectedValue);
-                startActivity(myIntent);
-
-            }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
+    public void displayProduct(View myView) {
 
 
+        //on va cree une instance pour le spinner et Textview
+        //Spinner dropdown = (Spinner) findViewById(R.id.theList);
 
-}
-    //public void displayProduct(View myView) {
+        //on va recuperer la valeur selectionnee dans le dropdown comme String
+
+
+        //on va recuperer la valeur selectionne dans le dropdown comme position
+        // int theSelectedPosition = dropdown.getSelectedItemPosition();
+        Spinner dropdown = (Spinner)findViewById(R.id.theList);
+        theSelectedValue = dropdown.getSelectedItem().toString();
+        System.out.print("************************ici"+theSelectedValue);
+        Intent myIntent = new Intent(this, Main3Activity.class);
+        myIntent.putExtra("ID", theSelectedValue);
+        startActivity(myIntent);
+
 //        WebService.GetListProduitsTask task = (WebService.GetListProduitsTask) new WebService.GetListProduitsTask().execute();
 //        try {
 //            ListProd = task.get();
@@ -150,6 +146,6 @@ public class Main2Activity_succes extends AppCompatActivity {
 //        startActivity(myIntent);
 //        }
 //
-//    }
-//}
+   }
+}
 
