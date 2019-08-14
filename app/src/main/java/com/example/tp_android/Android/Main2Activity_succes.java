@@ -23,6 +23,7 @@ public class Main2Activity_succes extends AppCompatActivity {
     ArrayList<Produit> ListProd = new ArrayList();
     String theSelectedValue;
     String[] idList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,26 +82,26 @@ public class Main2Activity_succes extends AppCompatActivity {
             tr1.addView(theQuantite);
 
             med.addView(tr1);
-            }
-             idList = new String[ListProd.size()];
-            for (int i = 0; i < ListProd.size(); i++) {
-                idList[i] = ListProd.get(i).getId();
-                System.out.println(idList[i]);
-            }
-        //System.out.println(idList);
+        }
+        idList = new String[ListProd.size()];
+        for (int i = 0; i < ListProd.size(); i++) {
+            idList[i] = ListProd.get(i).getId();
+            System.out.println(idList[i]);
+        }
+
 
         Spinner dropdown = (Spinner) findViewById(R.id.theList);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, idList);
-       dropdown.setAdapter(adapter);
-       theSelectedValue = dropdown.getSelectedItem().toString();
-        //System.out.print("************************"+theSelectedValue);
+        dropdown.setAdapter(adapter);
+        // theSelectedValue = dropdown.getSelectedItem().toString();
+
         out7.setText("Employee List");
     }
 
     public void displayProduct(View myView) {
 
         //on va cree une instance pour le spinner et Textview
-        Spinner dropdown = (Spinner)findViewById(R.id.theList);
+        Spinner dropdown = (Spinner) findViewById(R.id.theList);
 
         //on va recuperer la valeur selectionnee dans le dropdown comme String
         theSelectedValue = dropdown.getSelectedItem().toString();

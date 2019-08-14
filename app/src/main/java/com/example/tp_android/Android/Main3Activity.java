@@ -46,7 +46,7 @@ public class Main3Activity extends AppCompatActivity {
         out4.setText(""+ prd.getPrix());
         out5.setText(""+prd.getQuantite());
         out6.setText(prd.getDescription().substring(0,50));
-        //System.out.println(prd.getDescription());
+
         }
     public void loginBack(View myView){
         Intent  myIntent = new Intent(this,MainActivity.class);

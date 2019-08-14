@@ -32,7 +32,7 @@ public class WebService {
             URL url = null;
 
             try {
-                url = new URL("http://192.168.2.20:8080/wsREST_simple/webresources/produit");
+                url = new URL("http://aniss.ca/REST_WebService_Produit/webresources/produit");
                 HttpURLConnection client = null;
 
                 client = (HttpURLConnection) url.openConnection();
@@ -91,7 +91,7 @@ public class WebService {
 
             try {
 
-                url = new URL("http://192.168.2.20:8080/wsREST_simple/webresources/produit/id/" + id);
+                url = new URL("http://aniss.ca/REST_WebService_Produit/webresources/produit/id/" + id);
                 HttpURLConnection client = null;
 
                 client = (HttpURLConnection) url.openConnection();
