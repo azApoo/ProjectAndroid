@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.tp_android.R;
 
 public class Main2Activity_Error extends AppCompatActivity {
-    TextView errorUsername,errorPassword;
+    TextView errorUsername;
     String username,password;
     Intent myIntent;
     @Override

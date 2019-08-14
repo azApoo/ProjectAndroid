@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Main3Activity"></activity>
+        <activity android:name=".Android.Main3Activity"></activity>
         <activity android:name=".Android.Main2Activity_succes" />
         <activity android:name=".Android.Main2Activity_Error" />
         <activity android:name=".Android.MainActivity">

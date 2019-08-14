@@ -8,10 +8,8 @@ public class Produit {
     int quantite;
     String description;
 
-
     public Produit() {
     }
-
 
     public Produit(String id, String nom, double prix, int quantite, String description) {
         this.id = id;
@@ -65,11 +63,11 @@ public class Produit {
     @Override
     public String toString() {
         return "Produit{" +
-                "id='" + id + '\'' +
-                ", nom='" + nom + '\'' +
-                ", prix=" + prix +
-                ", quantite=" + quantite +
-                ", description='" + description + '\'' +
+                "Id='" + id + '\'' +
+                ", Nom='" + nom + '\'' +
+                ", Prix=" + prix +
+                ", Quantite=" + quantite +
+                ", Description='" + description + '\'' +
                 '}';
     }
 }

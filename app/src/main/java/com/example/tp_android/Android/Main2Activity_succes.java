@@ -2,7 +2,6 @@ package com.example.tp_android.Android;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -12,16 +11,15 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.tp_android.Main3Activity;
 import com.example.tp_android.Models.Produit;
 import com.example.tp_android.R;
 import com.example.tp_android.Service.WebService;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class Main2Activity_succes extends AppCompatActivity {
+    TextView out7;
     ArrayList<Produit> ListProd = new ArrayList();
     String theSelectedValue;
     String[] idList;
@@ -30,6 +28,7 @@ public class Main2Activity_succes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2_succes);
 
+        out7 = (TextView) findViewById(R.id.textView4);
         TableLayout med = (TableLayout) findViewById(R.id.med);
 
         TableRow tr1 = new TableRow(this);
@@ -82,7 +81,7 @@ public class Main2Activity_succes extends AppCompatActivity {
             tr1.addView(theQuantite);
 
             med.addView(tr1);
-        }
+            }
              idList = new String[ListProd.size()];
             for (int i = 0; i < ListProd.size(); i++) {
                 idList[i] = ListProd.get(i).getId();
@@ -94,58 +93,25 @@ public class Main2Activity_succes extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, idList);
        dropdown.setAdapter(adapter);
        theSelectedValue = dropdown.getSelectedItem().toString();
-        System.out.print("************************"+theSelectedValue);
+        //System.out.print("************************"+theSelectedValue);
+        out7.setText("Employee List");
     }
 
     public void displayProduct(View myView) {
 
-
         //on va cree une instance pour le spinner et Textview
-        //Spinner dropdown = (Spinner) findViewById(R.id.theList);
+        Spinner dropdown = (Spinner)findViewById(R.id.theList);
 
         //on va recuperer la valeur selectionnee dans le dropdown comme String
-
+        theSelectedValue = dropdown.getSelectedItem().toString();
 
         //on va recuperer la valeur selectionne dans le dropdown comme position
         // int theSelectedPosition = dropdown.getSelectedItemPosition();
-        Spinner dropdown = (Spinner)findViewById(R.id.theList);
-        theSelectedValue = dropdown.getSelectedItem().toString();
-        System.out.print("************************ici"+theSelectedValue);
+
+        //System.out.print("************************ici"+theSelectedValue);
         Intent myIntent = new Intent(this, Main3Activity.class);
         myIntent.putExtra("ID", theSelectedValue);
         startActivity(myIntent);
-
-//        WebService.GetListProduitsTask task = (WebService.GetListProduitsTask) new WebService.GetListProduitsTask().execute();
-//        try {
-//            ListProd = task.get();
-//        } catch (ExecutionException e) {
-//            e.printStackTrace();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//        String[] idList=new String[ListProd.size()];
-//        for(int i=0; i<ListProd.size()-1; i++) {
-//            idList[i]=ListProd.get(i).getId();
-//            System.out.println(idList[i]);
-//        Spinner dropdown = (Spinner) findViewById(R.id.theList);
-//        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, idList);
-//        dropdown.setAdapter(adapter);
-//
-//        //on va cree une instance pour le spinner et Textview
-//        //Spinner dropdown = (Spinner) findViewById(R.id.theList);
-//        TextView myLabel = (TextView) findViewById(R.id.textView4);
-//
-//        //on va recuperer la valeur selectionnee dans le dropdown comme String
-//        String theSelectedValue = dropdown.getSelectedItem().toString();
-//
-//        //on va recuperer la valeur selectionne dans le dropdown comme position
-//        int theSelectedPosition = dropdown.getSelectedItemPosition();
-//
-//        Intent myIntent = new Intent(this, Main3Activity.class);
-//        myIntent.putExtra("ID", theSelectedValue);
-//        startActivity(myIntent);
-//        }
-//
-   }
+    }
 }
 
