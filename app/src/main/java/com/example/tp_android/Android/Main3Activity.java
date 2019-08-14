@@ -40,7 +40,7 @@ public class Main3Activity extends AppCompatActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        out1.setText("EMPLOYEE DETAILS");
+        out1.setText("PRODUITS DETAILS");
         out2.setText(prd.getId());
         out3.setText(prd.getNom());
         out4.setText(""+ prd.getPrix());

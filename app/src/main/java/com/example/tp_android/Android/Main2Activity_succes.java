@@ -89,13 +89,12 @@ public class Main2Activity_succes extends AppCompatActivity {
             System.out.println(idList[i]);
         }
 
-
         Spinner dropdown = (Spinner) findViewById(R.id.theList);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, idList);
         dropdown.setAdapter(adapter);
         // theSelectedValue = dropdown.getSelectedItem().toString();
 
-        out7.setText("Employee List");
+        out7.setText("Produit List");
     }
 
     public void displayProduct(View myView) {
