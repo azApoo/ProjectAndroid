@@ -32,7 +32,7 @@ public class WebService {
             URL url = null;
 
             try {
-                url = new URL("http://192.168.0.120:25507/wsREST_simple/webresources/produit");
+                url = new URL("http://192.168.2.20:8080/wsREST_simple/webresources/produit");
                 HttpURLConnection client = null;
 
                 client = (HttpURLConnection) url.openConnection();
@@ -44,15 +44,16 @@ public class WebService {
                 System.out.println("\n Sending 'GET' request to URL : " + url);
                 System.out.println("response Code : " + responsecode);
 
+
                 InputStreamReader myInput = new InputStreamReader(client.getInputStream());
-                BufferedReader br = new BufferedReader(myInput);
+                BufferedReader in = new BufferedReader(myInput);
                 String inputLine;
                 StringBuffer response = new StringBuffer();
 
-                while ((inputLine = br.readLine()) != null) {
+                while ((inputLine = in.readLine()) != null) {
                     response.append(inputLine);
                 }
-                br.close();
+                in.close();
 
                 JSONArray produits = new JSONArray(response.toString());
                 JSONObject SingleProduit;
@@ -65,15 +66,20 @@ public class WebService {
                     p.setPrix(SingleProduit.getDouble("prix"));
                     p.setQuantite(SingleProduit.getInt("quantite"));
 
+
                     ListProduits.add(i, p);
                 }
+
 
             } catch (IOException | JSONException e) {
                 e.printStackTrace();
             }
             return ListProduits;
+
         }
+
     }
+
 
     public static class GetProduitTask extends AsyncTask<String, Produit, Produit> {
 
@@ -85,7 +91,7 @@ public class WebService {
 
             try {
 
-                url = new URL("http://192.168.0.120:25507/wsREST_simple/webresources/produit/id/"+ id);
+                url = new URL("http://192.168.2.20:8080/wsREST_simple/webresources/produit/id/" + id);
                 HttpURLConnection client = null;
 
                 client = (HttpURLConnection) url.openConnection();
@@ -99,14 +105,14 @@ public class WebService {
 
 
                 InputStreamReader myInput = new InputStreamReader(client.getInputStream());
-                BufferedReader br = new BufferedReader(myInput);
+                BufferedReader in = new BufferedReader(myInput);
                 String inputLine;
                 StringBuffer response = new StringBuffer();
 
-                while ((inputLine = br.readLine()) != null) {
+                while ((inputLine = in.readLine()) != null) {
                     response.append(inputLine);
                 }
-                br.close();
+                in.close();
 
                 JSONObject JSONProduit = new JSONObject(response.toString());
 
@@ -114,7 +120,7 @@ public class WebService {
                 p.setNom(JSONProduit.getString("nom"));
                 p.setPrix(JSONProduit.getDouble("prix"));
                 p.setQuantite(JSONProduit.getInt("quantite"));
-                p.setDescription(JSONProduit.getString("description"));
+                p.setDescription(JSONProduit.getString("desciption"));
 
             } catch (IOException | JSONException e) {
                 e.printStackTrace();
@@ -124,5 +130,6 @@ public class WebService {
         }
 
     }
+
 
 }
