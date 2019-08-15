@@ -35,18 +35,27 @@ public class Main2Activity_succes extends AppCompatActivity {
         TableRow tr1 = new TableRow(this);
         TextView theID = new TextView(this);
         theID.setText(" ID ");
+        theID.setPadding(0,3,10,6);
+        theID.setTextSize(16);
         tr1.addView(theID);
+
 
         TextView theName = new TextView(this);
         theName.setText(" Nom ");
+        theName.setPadding(0,3,10,6);
+        theName.setTextSize(16);
         tr1.addView(theName);
 
         TextView thePrice = new TextView(this);
         thePrice.setText(" Prix ");
+        thePrice.setPadding(0,3,10,6);
+        thePrice.setTextSize(16);
         tr1.addView(thePrice);
 
         TextView theQuantite = new TextView(this);
         theQuantite.setText(" Quantite ");
+        theQuantite.setPadding(0,3,10,6);
+        theQuantite.setTextSize(16);
         tr1.addView(theQuantite);
 
         med.addView(tr1);
@@ -66,19 +75,23 @@ public class Main2Activity_succes extends AppCompatActivity {
 
             theID = new TextView(this);
             theID.setText("ID-" + p.getId());
+            theID.setPadding(10,3,10,3);
             tr1.addView(theID);
 
             theName = new TextView(this);
             theName.setText(p.getNom());
+            theName.setPadding(10,3,10,3);
             tr1.addView(theName);
 
             thePrice = new TextView(this);
             thePrice.setText("" + p.getPrix());
+            thePrice.setPadding(10,3,10,3);
             int name = Integer.parseInt(p.getId());
             tr1.addView(thePrice);
 
             theQuantite = new TextView(this);
             theQuantite.setText("" + p.getQuantite());
+            theQuantite.setPadding(10,3,10,3);
             tr1.addView(theQuantite);
 
             med.addView(tr1);
