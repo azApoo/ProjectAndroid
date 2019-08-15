@@ -23,7 +23,7 @@ import java.util.ListIterator;
 import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
-    EditText inUser,inPw;
+    EditText inUser, inPw;
     Intent myIntent;
 
 
@@ -31,29 +31,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
     }
-    public void login(View myView){
+
+    public void login(View myView) {
 
 
         //instanciation de la zone de saisie
         inUser = (EditText) findViewById(R.id.editText);
         inPw = (EditText) findViewById(R.id.editText2);
 
-
         String sUser = inUser.getText().toString();
         String sPw = inPw.getText().toString();
-        System.out.println("sUser ---" +sUser);
-        System.out.println("sPw ---" +sPw);
 
-        if(Verification.validerUsername(sUser)&&Verification.validerPassword(sPw)&&
-           Verification.verifierUserPwd(sUser,sPw)){
-            myIntent = new Intent(this,Main2Activity_succes.class);
+        if (Verification.validerUsername(sUser) && Verification.validerPassword(sPw) &&
+                Verification.verifierUserPwd(sUser, sPw)) {
+            myIntent = new Intent(this, Main2Activity_succes.class);
             startActivity(myIntent);
-        }
-        else {
-            myIntent = new Intent(this,Main2Activity_Error.class);
+        } else {
+            myIntent = new Intent(this, Main2Activity_Error.class);
             myIntent.putExtra("USERNAME", sUser);
             myIntent.putExtra("PASSWORD", sPw);
             startActivity(myIntent);

@@ -11,21 +11,22 @@ import com.example.tp_android.R;
 
 public class Main2Activity_Error extends AppCompatActivity {
     TextView errorUsername;
-    String username,password;
+    String username, password;
     Intent myIntent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2__error);
-        errorUsername=(TextView) findViewById(R.id.textView2);
+        errorUsername = (TextView) findViewById(R.id.textView2);
         Intent myNewIntent = getIntent();
         username = ((Intent) myNewIntent).getStringExtra("USERNAME");
         password = ((Intent) myNewIntent).getStringExtra("PASSWORD");
-        errorUsername.setText("The username " + username + " and Password "+password+" is not a valid combination.");
+        errorUsername.setText("The username " + username + " and Password " + password + " is not a valid combination.");
     }
 
-    public void loginBack(View myView){
-            myIntent = new Intent(this,MainActivity.class);
-            startActivity(myIntent);
-        }
+    public void loginBack(View myView) {
+        myIntent = new Intent(this, MainActivity.class);
+        startActivity(myIntent);
+    }
 }

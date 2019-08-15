@@ -17,6 +17,7 @@ import java.util.concurrent.ExecutionException;
 public class Main3Activity extends AppCompatActivity {
     Produit prd = new Produit();
     TextView out1, out2, out3, out4, out5, out6;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +33,7 @@ public class Main3Activity extends AppCompatActivity {
         Intent monIntent = getIntent();
         String receivedId = monIntent.getStringExtra("ID");
 
-        WebService.GetProduitTask task2= (WebService.GetProduitTask) new WebService.GetProduitTask().execute(receivedId);
+        WebService.GetProduitTask task2 = (WebService.GetProduitTask) new WebService.GetProduitTask().execute(receivedId);
         try {
             prd = task2.get();
         } catch (ExecutionException e) {
@@ -40,18 +41,19 @@ public class Main3Activity extends AppCompatActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        out1.setText("PRODUIT " +receivedId+" DETAILS");
+        out1.setText("PRODUIT " + receivedId + ": DETAILS");
         out2.setText(prd.getId());
         out3.setText(prd.getNom());
-        out4.setText(""+ prd.getPrix());
-        out5.setText(""+prd.getQuantite());
-        out6.setText(prd.getDescription().substring(0,50));
+        out4.setText("" + prd.getPrix());
+        out5.setText("" + prd.getQuantite());
+        out6.setText(prd.getDescription().substring(0, 50));
 
-        }
-    public void loginBack(View myView){
-        Intent  myIntent = new Intent(this,MainActivity.class);
-        startActivity(myIntent);
-        }
     }
+
+    public void loginBack(View myView) {
+        Intent myIntent = new Intent(this, MainActivity.class);
+        startActivity(myIntent);
+    }
+}
 
 
